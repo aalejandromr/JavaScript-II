@@ -1,33 +1,33 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
 
-// const makeCounter = function(){
-//   let privateCounter = 0;
-//   function changeBy(val){
-//     privateCounter += val
-//   }
-//   return {
-//     increment: function(){
-//       changeBy(1)
-//     },
-//     decrement: function(){
-//       changeBy(-1)
-//     },
-//     value: function(){
-//       return privateCounter;
-//     }
-//   }
-// }
+const makeCounter = function(){
+  let privateCounter = 0;
+  function changeBy(val){
+    privateCounter += val
+  }
+  return {
+    increment: function(){
+      changeBy(1)
+    },
+    decrement: function(){
+      changeBy(-1)
+    },
+    value: function(){
+      return privateCounter;
+    }
+  }
+}
 
-// let counter1 = makeCounter();
-// counter1.increment();
-// counter1.increment();
+let counter1 = makeCounter();
+counter1.increment();
+counter1.increment();
+counter1.decrement();
 // counter1.decrement();
-// // counter1.decrement();
-// // counter1.decrement();
-// console.log(counter1.value());
+// counter1.decrement();
+console.log(counter1.value());
 const err = "Can\'t conquer that country, it is out of your scope";
-const conquer = function(){
+const conquer = (function(){
   let country = 'US';
   function let_conquer(val){
     country = val;
@@ -60,14 +60,14 @@ const conquer = function(){
       return country
     }
   }
-}
+})() //IIFE approach
 
-let war = conquer();
-war.conquer_sv();
-// war.conquer_spain();
-war.conquer_you();
+conquer.conquer_sv();
+// uncomment this to see results
+// conquer.conquer_spain();
+conquer.conquer_you();
 
-console.log(war.who_conquer());
+console.log(conquer.who_conquer());
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
